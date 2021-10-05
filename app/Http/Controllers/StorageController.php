@@ -40,7 +40,7 @@ class StorageController extends Controller
         ->make(true);
     }
 
-    function create_mini(request $request){
+    function createmini(request $request){
         $last_number = DB::table('storages')
                                 ->orderBy('kode_karyawan', 'desc')->first();
     

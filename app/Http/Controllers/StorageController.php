@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\DB;
 class StorageController extends Controller
 {
     
-    function listmini(){
+    function getlistmini(){
 
         $data = DB::select("SELECT * FROM storages");
             return response()->json(

@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 // Storage
 Route::prefix('/storage')->group(function(){
 	Route::get('get/mini','StorageController@getlistmini');
+	Route::post('create/mini','StorageController@createmini');
 });
 
 Route::post('/product','StorageController@post');

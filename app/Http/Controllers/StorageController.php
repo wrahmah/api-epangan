@@ -38,22 +38,49 @@ class StorageController extends Controller
         })
         ->rawColumns(['actions'])
         ->make(true);
-
-        // return response()->json(
-        //         [
-        //             "message" => "GET Method success",
-        //             "data"    => $data
-        //         ]
-        // );
     }
 
-    function post(request $request){
-        return response()->json(
-            [
-                "message" => "Post Method success",
-       
-            ]
-        );
+    function create_mini(request $request){
+        $last_number = DB::table('storages')
+                                ->orderBy('kode_karyawan', 'desc')->first();
+    
+        if ($last_number == null) {
+
+            $kode_karyawan      = 'KW'. '000001';
+
+        }else{
+
+            $last_number    = DB::table('storages')
+                                        ->orderBy('kode_karyawan', 'desc')->first()->kode_karyawan;
+
+            $lastIncreament = substr($last_number, -6);
+
+            // Make a new order id with appending last increment + 1
+            $kode_karyawan      = 'KW' . str_pad($lastIncreament + 1, 6, 0, STR_PAD_LEFT);   
+        }
+
+        
+        DB::table('storages')->insert([
+            'id_storage'    => $request->id_storage,
+            'name_storage'  => $request->nama_storage,
+            'no_telepon'    => $request->no_telp,
+            'id_provinsi'   => $request->provinsi,
+            'id_kabupaten'  => $request->kabupaten,
+            'id_kecamatan'  => $request->kecamatan,
+            'id_desa'       => $request->desa,
+            'kode_pos'      => $request->kodepos,
+            'email'         => $request->email,
+            'jenis_storage' => $request->id,
+            'jenis_penyimpanan' => $request->jenis_penyimpanan,
+            'kode_karyawan'     => $kode_karyawan,
+            'alamat'            => $request->alamat,
+            'status'            => 0,
+            'tanggal_dibuat'    => date('Y-m-d'),
+            'created_at'        => date('Y-m-d H:i:s'),
+            'updated_at'        => date('Y-m-d H:i:s'),
+        ]);
+
+        return "berhasil";
 
     }
     function get(){

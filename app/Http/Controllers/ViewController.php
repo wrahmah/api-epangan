@@ -23,8 +23,8 @@ class ViewController extends Controller
             $lastIncreament = substr($last_number, -6);
 
             // Make a new order id with appending last increment + 1
-            // $newnumber      = 'ST' . str_pad($lastIncreament + 1, 6, 0, STR_PAD_LEFT);  
-            $newnumber = 'ST000004' ;
+            $newnumber      = 'ST' . str_pad($lastIncreament + 1, 6, 0, STR_PAD_LEFT);  
+            // $newnumber = 'ST000004' ;
             }
 
 
@@ -35,6 +35,6 @@ class ViewController extends Controller
             'number' => $newnumber,
             ];
 
-            return view('storage.mini.mini_form',$data);
+            return $data;
     }
 }

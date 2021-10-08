@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 // Storage
 Route::prefix('/storage')->group(function(){
+	Route::get('viewmini','ViewController@view_ministorage');
 	Route::get('get/mini','StorageController@getlistmini');
 	Route::post('create/mini','StorageController@createmini');
 });

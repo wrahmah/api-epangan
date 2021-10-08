@@ -24,7 +24,7 @@ Route::prefix('/storage')->group(function(){
 
 Route::prefix('/petani')->group(function(){
 	Route::get('get/{id}', 'PetaniController@getdata');
-	Route::get('getpetani','PetaniController@getpetani');
+	Route::get('getpetani','ProsesController@getpetani');
 	Route::get('form','ViewController@form_petani');
 	Route::post('create','PetaniController@create');
 
@@ -33,7 +33,7 @@ Route::prefix('/petani')->group(function(){
 Route::prefix('/proses')->group(function(){
 	Route::get('penerimaan/list','ProsesController@list_receive');
 	Route::get('penermaan/get_list','ProsesController@get_listreceive');
-	Route::post('receive/formitem/{param?}','JavascriptController@form_item_receive');
+	Route::post('receive/formitem/{param?}','ViewController@form_item_receive');
 	Route::post('create/receive','ProsesController@create_receive');
 	Route::get('form/receive','ProsesController@formreceive');
 });

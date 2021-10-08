@@ -24,6 +24,7 @@ Route::prefix('/storage')->group(function(){
 
 Route::prefix('/petani')->group(function(){
 	Route::get('get/{id}', 'PetaniController@getdata');
+	Route::get('getpetani','PetaniController@getpetani');
 	Route::get('form','ViewController@form_petani');
 	Route::post('create','PetaniController@create');
 

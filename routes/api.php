@@ -34,6 +34,7 @@ Route::prefix('/proses')->group(function(){
 	Route::get('penermaan/get_list','ProsesController@get_listreceive');
 	Route::post('receive/formitem/{param?}','JavascriptController@form_item_receive');
 	Route::post('create/receive','ProsesController@create_receive');
+	Route::get('form/receive','ProsesController@formreceive');
 });
 
 Route::post('/product','StorageController@post');

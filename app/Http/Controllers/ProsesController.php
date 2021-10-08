@@ -47,7 +47,7 @@ class ProsesController extends Controller
             ->make(true);
 
     }
-    public function formreceive(request $req){
+    function formreceive(){
         $last_number = DB::table('penerimaan')
                                 ->orderBy('id_penerimaan', 'desc')->first();
     
@@ -71,9 +71,7 @@ class ProsesController extends Controller
             'petani'    => DB::select('select * from petani'),
             'number'    => $newnumber,
         ];
-
-       
-    	return view('proses.penerimaan.form',$data);
+        return $data;
     }
     function create_receive(request $req){
         DB::table('penerimaan')->insert([

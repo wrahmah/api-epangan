@@ -16,8 +16,16 @@ use Illuminate\Support\Facades\Route;
 // Storage
 Route::prefix('/storage')->group(function(){
 	Route::get('viewmini','ViewController@view_ministorage');
-	Route::get('get/mini','StorageController@getlistmini');
-	Route::post('create/mini','StorageController@createmini');
+	Route::post('viewcold','StorageController@view_coldstorage');
+	Route::get('get/{id}','StorageController@getliststorage');
+	Route::post('create','StorageController@create');
+	
+});
+
+Route::prefix('/petani')->group(function(){
+	Route::get('form','ViewController@form_petani');
+	Route::post('create','PetaniController@create');
+
 });
 
 Route::post('/product','StorageController@post');

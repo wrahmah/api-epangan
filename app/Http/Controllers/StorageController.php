@@ -8,9 +8,9 @@ use DataTables;
 class StorageController extends Controller
 {
     
-    function getlistmini(){
+    function getliststorage($id){
 
-        $data = DB::select("SELECT * FROM storages");
+        $data = DB::select("SELECT * FROM storages where jenis_storage = ". $id);
             
         return DataTables::of($data)
         ->addColumn('actions', function ($data) {
@@ -40,7 +40,8 @@ class StorageController extends Controller
         ->make(true);
     }
 
-    function createmini(request $request){
+
+    function create(request $request){
 
         $last_number = DB::table('storages')
                                 ->orderBy('kode_karyawan', 'desc')->first();
@@ -111,23 +112,6 @@ class StorageController extends Controller
       
 
     }
-    function get(){
-        return response()->json(
-            [
-                "message" => "GET Method success",
-       
-            ]
-        );
-
-    }
-    function put($id){
-        return response()->json(
-            [
-                "message" => "GET Method success",
-       
-            ]
-        );
-
-    }
+   
 
 }

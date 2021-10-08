@@ -94,6 +94,6 @@ class ViewController extends Controller
             'number'    => $id_petani,
         ];
 
-        return $data
+        return $data;
     }
 }

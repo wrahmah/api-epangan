@@ -68,10 +68,14 @@ class ProsesController extends Controller
     	$data =[
             'menu'      => DB::select('select * from menus order by sort ASC'),
             'submenu'   => DB::select('select * from menus join submenu on menus.title=submenu.Parent'),
-            'petani'    => DB::select('select * from petani'),
+            // 'petani'    => DB::select('select * from petani'),
             'number'    => $newnumber,
         ];
         return $data;
+    }
+
+    function getpetani(){
+        return DB::select('select * from petani');
     }
     function create_receive(request $req){
         DB::table('penerimaan')->insert([

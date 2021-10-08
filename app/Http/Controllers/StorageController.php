@@ -112,6 +112,17 @@ class StorageController extends Controller
       
 
     }
+
+    function get(){
+
+        $data = DB::table('detail_barang')
+                                ->orderBy('id_barang', 'desc')->first();
+        
+        $data2 = DB::table('detail_barang')
+                                ->orderBy('id_barang', 'desc')->first()->id_barang;
+        
+
+    }
    
 
 }

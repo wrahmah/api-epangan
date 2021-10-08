@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\DB;
 class PetaniController extends Controller
 {
     
-        public function create(request $request){
+    function create(request $request){
 
         $file = $request->file('foto');
         if($file != ''){
@@ -28,4 +28,9 @@ class PetaniController extends Controller
                 'telepon'    => $request->no_telp,
         ]);
     }
+
+    function getdata($id){
+        return DB::select('select * from petani where id_petani = "'.$id.'"');
+    }
+
 }

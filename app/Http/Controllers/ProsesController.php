@@ -14,9 +14,7 @@ class ProsesController extends Controller
             'menu' =>DB::select('select * from menus order by sort ASC'),
             'submenu' => DB::select('select * from menus join submenu on menus.title=submenu.Parent'),
         ];
-
-
-    	return view('proses.penerimaan.list',$data);
+        return $data;
     }
     public function get_listreceive(){
         $today = date('Y-m-d');

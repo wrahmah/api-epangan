@@ -34,7 +34,7 @@ class ViewController extends Controller
             'id'   => 1, 
             'number' => $newnumber,
             ];
-
             return $data;
+         
     }
 }

@@ -100,7 +100,7 @@ class StorageController extends Controller
             'kode_karyawan'     => $kode_karyawan,
             'alamat'            => $request->alamat,
             'status'            => 0,
-            'jml_ruangan'       => $request->jml_ruangan
+            'jml_ruangan'       => $request->jml_ruangan,
             'tanggal_dibuat'    => date('Y-m-d'),
             'created_at'        => date('Y-m-d H:i:s'),
             'updated_at'        => date('Y-m-d H:i:s'),
